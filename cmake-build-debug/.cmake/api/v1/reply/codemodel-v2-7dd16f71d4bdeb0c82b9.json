@@ -1,0 +1,60 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.23"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Antivirus",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Antivirus::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Antivirus-Debug-a17cf6f8f23e7930c4d8.json",
+					"name" : "Antivirus",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/\u0423\u0447\u0435\u0431\u0430/2 \u043a\u0443\u0440\u0441/3 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u041a\u0443\u0440\u0441\u043e\u0432\u043e\u0439 \u043f\u0440\u043e\u0435\u043a\u0442/Antivirus/cmake-build-debug",
+		"source" : "D:/\u0423\u0447\u0435\u0431\u0430/2 \u043a\u0443\u0440\u0441/3 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u041a\u0443\u0440\u0441\u043e\u0432\u043e\u0439 \u043f\u0440\u043e\u0435\u043a\u0442/Antivirus"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}
