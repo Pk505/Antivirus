@@ -130,12 +130,12 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "cmake-build-debug/Signature.cpp",
+			"path" : "Signature.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "cmake-build-debug/Signature.h",
+			"path" : "Signature.h",
 			"sourceGroupIndex" : 1
 		}
 	],

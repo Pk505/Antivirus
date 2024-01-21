@@ -11,7 +11,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/\u0423\u0447\u0435\u0431\u0430/2 \u043a\u0443\u0440\u0441/3 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u041a\u0443\u0440\u0441\u043e\u0432\u043e\u0439 \u043f\u0440\u043e\u0435\u043a\u0442/Antivirus/cmake-build-debug"
+			"value" : "C:/CLionProjects/3semestr/Antivirus/cmake-build-debug"
 		},
 		{
 			"name" : "Antivirus_IS_TOP_LEVEL",
@@ -35,7 +35,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "D:/\u0423\u0447\u0435\u0431\u0430/2 \u043a\u0443\u0440\u0441/3 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u041a\u0443\u0440\u0441\u043e\u0432\u043e\u0439 \u043f\u0440\u043e\u0435\u043a\u0442/Antivirus"
+			"value" : "C:/CLionProjects/3semestr/Antivirus"
 		},
 		{
 			"name" : "CMAKE_AR",
@@ -75,7 +75,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "d:/\u0423\u0447\u0435\u0431\u0430/2 \u043a\u0443\u0440\u0441/3 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u041a\u0443\u0440\u0441\u043e\u0432\u043e\u0439 \u043f\u0440\u043e\u0435\u043a\u0442/Antivirus/cmake-build-debug"
+			"value" : "c:/CLionProjects/3semestr/Antivirus/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -551,7 +551,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "D:/\u0423\u0447\u0435\u0431\u0430/2 \u043a\u0443\u0440\u0441/3 \u0441\u0435\u043c\u0435\u0441\u0442\u0440/\u041a\u0443\u0440\u0441\u043e\u0432\u043e\u0439 \u043f\u0440\u043e\u0435\u043a\u0442/Antivirus"
+			"value" : "C:/CLionProjects/3semestr/Antivirus"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",

@@ -1,0 +1,10 @@
+# ninja log v5
+1	119	7275808151423961	build.ninja	521b9ab888cbe385
+31	115	7275808202176134	CMakeFiles/Antivirus.dir/Signature.cpp.obj	2d8dc57ffdce8be4
+1	1323	7275808214256540	CMakeFiles/Antivirus.dir/AVBase.cpp.obj	ab787c9aec6c48aa
+18	1338	7275808214411729	CMakeFiles/Antivirus.dir/main.cpp.obj	fca119c4d67abc0a
+1339	1940	7275808220271712	Antivirus.exe	38541fd0386b2fff
+0	1148	7275827022317508	CMakeFiles/Antivirus.dir/main.cpp.obj	fca119c4d67abc0a
+1150	1477	7275827024595753	Antivirus.exe	38541fd0386b2fff
+1	975	7275829149836733	CMakeFiles/Antivirus.dir/main.cpp.obj	fca119c4d67abc0a
+979	1321	7275829152807235	Antivirus.exe	38541fd0386b2fff

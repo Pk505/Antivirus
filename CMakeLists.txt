@@ -3,4 +3,4 @@ project(Antivirus)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(Antivirus main.cpp AVBase.cpp AVBase.h cmake-build-debug/Signature.cpp cmake-build-debug/Signature.h)
+add_executable(Antivirus main.cpp AVBase.cpp AVBase.h Signature.cpp Signature.h)
