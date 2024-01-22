@@ -1,17 +1,10 @@
 # ninja log v5
-1	119	7275808151423961	build.ninja	521b9ab888cbe385
-31	115	7275808202176134	CMakeFiles/Antivirus.dir/Signature.cpp.obj	2d8dc57ffdce8be4
 1	1323	7275808214256540	CMakeFiles/Antivirus.dir/AVBase.cpp.obj	ab787c9aec6c48aa
-18	1338	7275808214411729	CMakeFiles/Antivirus.dir/main.cpp.obj	fca119c4d67abc0a
-1339	1940	7275808220271712	Antivirus.exe	38541fd0386b2fff
-0	1148	7275827022317508	CMakeFiles/Antivirus.dir/main.cpp.obj	fca119c4d67abc0a
-1150	1477	7275827024595753	Antivirus.exe	38541fd0386b2fff
-1	975	7275829149836733	CMakeFiles/Antivirus.dir/main.cpp.obj	fca119c4d67abc0a
-979	1321	7275829152807235	Antivirus.exe	38541fd0386b2fff
-0	2560	7276670331885295	CMakeFiles/Antivirus.dir/main.cpp.obj	fca119c4d67abc0a
-2565	3096	7276670336255302	Antivirus.exe	38541fd0386b2fff
-0	1737	7276686607787360	CMakeFiles/Antivirus.dir/main.cpp.obj	fca119c4d67abc0a
-1743	2245	7276686612272125	Antivirus.exe	38541fd0386b2fff
-0	954	7276688315752206	CMakeFiles/Antivirus.dir/main.cpp.obj	fca119c4d67abc0a
+1	119	7276692835878029	build.ninja	521b9ab888cbe385
+31	115	7275808202176134	CMakeFiles/Antivirus.dir/Signature.cpp.obj	2d8dc57ffdce8be4
 1	1016	7276688607019326	CMakeFiles/Antivirus.dir/main.cpp.obj	fca119c4d67abc0a
 1021	1297	7276688609058704	Antivirus.exe	38541fd0386b2fff
+0	105	7276692835878029	build.ninja	477d4087f893197b
+11	1333	7276694847120230	CMakeFiles/Antivirus.dir/Signature.cpp.obj	2d8dc57ffdce8be4
+0	1346	7276694847300032	CMakeFiles/Antivirus.dir/AVBase.cpp.obj	ab787c9aec6c48aa
+0	1035	7276699925745576	CMakeFiles/Antivirus.dir/AVBase.cpp.obj	ab787c9aec6c48aa
