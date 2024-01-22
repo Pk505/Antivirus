@@ -11,20 +11,31 @@
 #include <string>
 
 class AVBase {
-    std::vector<Signature> BaseVector;
+    unsigned int BaseSize = 0;
+    Signature *BaseArray = nullptr;
 public:
     AVBase(std::string Filename) {           //NEED to ADD ability to read more than one signature!!!!!
         std::ifstream file(Filename, std::ios::binary);
-        Signature temporarySignature;
-        file.read((char *) &temporarySignature, sizeof(Signature));
-        temporarySignature.Print();
-        BaseVector.push_back(temporarySignature); //NEED copy-constructor
+        Signature *temporarySignature = new Signature;
+        file.read(reinterpret_cast<char *>(&BaseSize), sizeof(BaseSize));
+        BaseArray = new Signature[BaseSize];
+        int i = 0;
+        while (file.read(reinterpret_cast<char *>(&BaseArray[i]), sizeof(Signature))) {
+            i++;
+        }
         file.close();
     }
-    void Print(){
-        for (auto &i:BaseVector){
-            i.Print();
-            std::cout<<std::endl;
+
+    void Print() {
+        for (int i = 0; i < BaseSize; i++) {
+            BaseArray[i].Print();
+            std::cout << std::endl;
+        }
+    }
+    ~AVBase(){
+        if (BaseArray != nullptr){
+            delete[] BaseArray;
+            BaseSize = 0;
         }
     }
 };

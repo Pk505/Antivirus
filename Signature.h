@@ -7,21 +7,43 @@
 #include <iostream>
 
 class Signature {
-    const unsigned short signatureSize = 16;
-    char signatureData[16];
+    static const unsigned short signatureLength = 16;
+private:
+    char signatureData[signatureLength];
 public:
     Signature(const Signature &oldSignature){
-        for (int i = 0; i < 16; i++){
+        for (int i = 0; i < signatureLength; i++){
             signatureData[i] = oldSignature.signatureData[i];
         }
     }
     Signature(){
-        for (int i = 0; i < 16; i++){
-            signatureData[i] = 38;
+        for (int i = 0; i < signatureLength; i++){
+            signatureData[i] = 0;
         }
     }
+
+    Signature& operator=(const Signature &oldSignature) {
+        // Оператор присваивания копирования
+        if (this != &oldSignature) {
+            for (int i = 0; i < signatureLength; i++) {
+                signatureData[i] = oldSignature.signatureData[i];
+            }
+        }
+        return *this;
+    }
+
+    Signature& operator=(Signature &&other) noexcept {
+        // Оператор присваивания перемещения
+        if (this != &other) {
+            for (int i = 0; i < signatureLength; i++) {
+                signatureData[i] = std::move(other.signatureData[i]);
+            }
+        }
+        return *this;
+    }
+
     void Print(){
-        for (int i = 0; i < 16; i++){
+        for (int i = 0; i < signatureLength; i++){
             std::cout<<signatureData[i]<<' ';
         }
     }
