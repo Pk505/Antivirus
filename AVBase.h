@@ -13,8 +13,8 @@ class AVBase {
 public:
     AVBase(const std::string Filename);
     void Print();
-    void Clear(const std::string Filename);
-};
 
+};
+void ClearBase(const std::string Filename);
 
 #endif //ANTIVIRUS_AVBASE_H

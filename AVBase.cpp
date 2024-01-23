@@ -8,7 +8,7 @@
 
 AVBase::AVBase(const std::string Filename) {
     std::ifstream file(Filename, std::ios::binary);
-    while (!file.eof()) {
+    while (file && file.peek() != EOF) {
         Signature signatureRead;
         file.read(reinterpret_cast<char *>(&signatureRead), sizeof(Signature));
         BaseVector.push_back(signatureRead);
@@ -25,7 +25,7 @@ void AVBase::Print() {
     }
 }
 
-void AVBase::Clear(const std::string Filename) {
+void ClearBase(const std::string Filename) {
     std::ofstream file(Filename, std::ios::binary | std::ios::trunc);
     file.close();
 }
