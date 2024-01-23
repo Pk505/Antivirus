@@ -4,12 +4,10 @@
 
 int main() {
     Signature testSignature;
-    std::ofstream file("AVBase.txt", std::ios::binary);
-    unsigned int size = 1;
-    file.write((char*)&size,sizeof (int));
-    file.write((char*)&testSignature,sizeof (Signature));
-    file.close();
+    testSignature.WriteToFile("AVBase.txt");
+    testSignature.WriteToFile("AVBase.txt");
     AVBase Base("AVBase.txt");
+    Base.Clear("AVBase.txt");
     Base.Print();
     return 0;
 }

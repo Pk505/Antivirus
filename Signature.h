@@ -4,6 +4,7 @@
 
 #ifndef ANTIVIRUS_SIGNATURE_H
 #define ANTIVIRUS_SIGNATURE_H
+#include <string>
 static const unsigned short signatureLength = 16;
 
 class Signature {
@@ -32,7 +33,7 @@ public:
 //        }
 //        return *this;
 //    }
-
+    void WriteToFile(const std::string FileName);
 };
 
 

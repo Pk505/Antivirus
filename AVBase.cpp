@@ -6,15 +6,12 @@
 #include <fstream>
 #include <iostream>
 
-AVBase::AVBase(std::string Filename) {
+AVBase::AVBase(const std::string Filename) {
     std::ifstream file(Filename, std::ios::binary);
-    unsigned int baseSize;
-    file.read(reinterpret_cast<char *>(&baseSize), sizeof(baseSize));
-
-    BaseVector.resize(baseSize); // Устанавливаем размер вектора
-
-    for (int i = 0; i < baseSize; i++) {
-        file.read(reinterpret_cast<char *>(&BaseVector[i]), sizeof(Signature));
+    while (!file.eof()) {
+        Signature signatureRead;
+        file.read(reinterpret_cast<char *>(&signatureRead), sizeof(Signature));
+        BaseVector.push_back(signatureRead);
     }
 
     file.close();
@@ -28,3 +25,7 @@ void AVBase::Print() {
     }
 }
 
+void AVBase::Clear(const std::string Filename) {
+    std::ofstream file(Filename, std::ios::binary | std::ios::trunc);
+    file.close();
+}

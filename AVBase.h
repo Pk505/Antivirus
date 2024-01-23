@@ -6,14 +6,14 @@
 #define ANTIVIRUS_AVBASE_H
 #include "Signature.h"
 #include <vector>
-#include <string>
 
 
 class AVBase {
     std::vector<Signature> BaseVector;
 public:
-    AVBase(std::string Filename);
+    AVBase(const std::string Filename);
     void Print();
+    void Clear(const std::string Filename);
 };
 
 
