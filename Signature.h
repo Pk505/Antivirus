@@ -4,10 +4,9 @@
 
 #ifndef ANTIVIRUS_SIGNATURE_H
 #define ANTIVIRUS_SIGNATURE_H
-#include <iostream>
+static const unsigned short signatureLength = 16;
 
 class Signature {
-    static const unsigned short signatureLength = 16;
 private:
     char signatureData[signatureLength];
 public:

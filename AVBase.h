@@ -4,11 +4,10 @@
 
 #ifndef ANTIVIRUS_AVBASE_H
 #define ANTIVIRUS_AVBASE_H
-#include <iostream>
-#include <vector>
 #include "Signature.h"
-#include <fstream>
+#include <vector>
 #include <string>
+
 
 class AVBase {
     std::vector<Signature> BaseVector;

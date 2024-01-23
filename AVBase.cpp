@@ -3,6 +3,9 @@
 //
 
 #include "AVBase.h"
+#include <fstream>
+#include <iostream>
+
 AVBase::AVBase(std::string Filename) {
     std::ifstream file(Filename, std::ios::binary);
     unsigned int baseSize;

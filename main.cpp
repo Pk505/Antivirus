@@ -1,5 +1,7 @@
-#include <iostream>
+
 #include "AVBase.h"
+#include <fstream>
+
 int main() {
     Signature testSignature;
     std::ofstream file("AVBase.txt", std::ios::binary);

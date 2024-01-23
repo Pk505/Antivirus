@@ -3,6 +3,7 @@
 //
 
 #include "Signature.h"
+#include <iostream>
 Signature::Signature(const Signature &oldSignature) {
     for (int i = 0; i < signatureLength; i++){
         signatureData[i] = oldSignature.signatureData[i];
@@ -11,7 +12,7 @@ Signature::Signature(const Signature &oldSignature) {
 
 Signature::Signature() {
     for (int i = 0; i < signatureLength; i++){
-        signatureData[i] = 0;
+        signatureData[i] = 38;
     }
 }
 

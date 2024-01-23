@@ -50,21 +50,21 @@ cmake_ninja_workdir = C$:\CLionProjects\3semestr\Antivirus\cmake-build-debug\
 build cmake_object_order_depends_target_Antivirus: phony || CMakeFiles\Antivirus.dir
 
 build CMakeFiles\Antivirus.dir\main.cpp.obj: CXX_COMPILER__Antivirus_Debug C$:\CLionProjects\3semestr\Antivirus\main.cpp || cmake_object_order_depends_target_Antivirus
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++latest
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
   OBJECT_DIR = CMakeFiles\Antivirus.dir
   OBJECT_FILE_DIR = CMakeFiles\Antivirus.dir
   TARGET_COMPILE_PDB = CMakeFiles\Antivirus.dir\
   TARGET_PDB = Antivirus.pdb
 
 build CMakeFiles\Antivirus.dir\AVBase.cpp.obj: CXX_COMPILER__Antivirus_Debug C$:\CLionProjects\3semestr\Antivirus\AVBase.cpp || cmake_object_order_depends_target_Antivirus
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++latest
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
   OBJECT_DIR = CMakeFiles\Antivirus.dir
   OBJECT_FILE_DIR = CMakeFiles\Antivirus.dir
   TARGET_COMPILE_PDB = CMakeFiles\Antivirus.dir\
   TARGET_PDB = Antivirus.pdb
 
 build CMakeFiles\Antivirus.dir\Signature.cpp.obj: CXX_COMPILER__Antivirus_Debug C$:\CLionProjects\3semestr\Antivirus\Signature.cpp || cmake_object_order_depends_target_Antivirus
-  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++latest
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
   OBJECT_DIR = CMakeFiles\Antivirus.dir
   OBJECT_FILE_DIR = CMakeFiles\Antivirus.dir
   TARGET_COMPILE_PDB = CMakeFiles\Antivirus.dir\
