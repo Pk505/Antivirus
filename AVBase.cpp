@@ -5,8 +5,7 @@
 #include "AVBase.h"
 #include <fstream>
 #include <iostream>
-
-AVBase::AVBase(const std::string Filename) {
+AVBase::AVBase(const std::string& Filename) {
     std::ifstream file(Filename, std::ios::binary);
     while (file && file.peek() != EOF) {
         Signature signatureRead;
@@ -29,3 +28,16 @@ void ClearBase(const std::string Filename) {
     std::ofstream file(Filename, std::ios::binary | std::ios::trunc);
     file.close();
 }
+
+bool AVBase::isFileInfected(const std::string &suspiciousFile) {
+    Signature suspiciousFileSignature(suspiciousFile);
+    bool result = false;
+    for (auto & baseElement: BaseVector){
+        if (suspiciousFileSignature == baseElement){
+            std::cout<<"File is infected!!!"<<std::endl;
+            result = true;
+        }
+    }
+    return result;
+}
+

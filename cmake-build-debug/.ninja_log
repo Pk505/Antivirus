@@ -6,3 +6,15 @@
 1	859	7279217772258108	CMakeFiles/Antivirus.dir/main.cpp.obj	3e3770c74d8c13e3
 14	1039	7279217774061761	CMakeFiles/Antivirus.dir/ScannerFunctions.cpp.obj	5021e00e2e45b237
 1044	1598	7279217778848672	Antivirus.exe	cccaa8bafa180287
+0	449	7279218757896968	CMakeFiles/Antivirus.dir/main.cpp.obj	3e3770c74d8c13e3
+457	847	7279218761380836	Antivirus.exe	cccaa8bafa180287
+22	1362	7279235868644624	CMakeFiles/Antivirus.dir/Signature.cpp.obj	bab8fd45d5a6fd81
+1	1369	7279235868654619	CMakeFiles/Antivirus.dir/main.cpp.obj	3e3770c74d8c13e3
+32	1379	7279235868865640	CMakeFiles/Antivirus.dir/ScannerFunctions.cpp.obj	5021e00e2e45b237
+0	787	7279236054977945	CMakeFiles/Antivirus.dir/main.cpp.obj	3e3770c74d8c13e3
+0	695	7279236763231561	CMakeFiles/Antivirus.dir/AVBase.cpp.obj	8633c0552a8f755f
+699	1189	7279236767557145	Antivirus.exe	cccaa8bafa180287
+0	793	7279237578500718	CMakeFiles/Antivirus.dir/main.cpp.obj	3e3770c74d8c13e3
+798	1052	7279237580472600	Antivirus.exe	cccaa8bafa180287
+0	645	7279239921107890	CMakeFiles/Antivirus.dir/main.cpp.obj	3e3770c74d8c13e3
+649	1007	7279239924296284	Antivirus.exe	cccaa8bafa180287

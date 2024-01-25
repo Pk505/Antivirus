@@ -7,14 +7,14 @@
 #include <iostream>
 
 
-void ScanDirectory(const std::string& path) {
+void ScanDirectory(const std::string& path, AVBase& Base) {
     try {
         for (const auto& entry : std::filesystem::directory_iterator(path)) {
             if ( std::filesystem::is_regular_file(entry.path())) {
                 std::cout << "File: " << entry.path().string() << std::endl;
             } else if ( std::filesystem::is_directory(entry.path())) {
                 std::cout << "Directory: " << entry.path().string() << std::endl;
-                ScanDirectory(entry.path().string()); // Рекурсивный вызов для сканирования подкаталогов
+                ScanDirectory(entry.path().string(), Base); // Recurse call to scan underdirectory
             }
         }
     } catch (const std::exception& e) {

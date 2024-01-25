@@ -5,18 +5,18 @@
 #ifndef ANTIVIRUS_SIGNATURE_H
 #define ANTIVIRUS_SIGNATURE_H
 #include <string>
-static const unsigned short signatureLength = 16;
+static const unsigned short signatureLength = 32;
 
 class Signature {
 private:
     char signatureData[signatureLength];
 public:
     Signature(const Signature &oldSignature);
-    Signature(const std::string FileName);
+    Signature(const std::string& FileName);
     Signature();
     void Print();
-    void WriteToFile(const std::string FileName);
-
+    void WriteToBase(const std::string& BaseFileName);
+    bool operator==(const Signature& other) const;
 };
 
 

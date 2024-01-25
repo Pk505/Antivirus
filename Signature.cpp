@@ -25,7 +25,7 @@ Signature::Signature(const Signature &oldSignature) {
     }
 }
 
-Signature::Signature(const std::string FileName) {
+Signature::Signature(const std::string &FileName) {
     std::ifstream file(FileName, std::ios::binary);
     file.read(signatureData, signatureLength);
     file.close();
@@ -43,9 +43,13 @@ void Signature::Print() {
     }
 }
 
-void Signature::WriteToFile(const std::string FileName) {
-    std::ofstream file(FileName, std::ios::binary | std::ios::app);
+void Signature::WriteToBase(const std::string &BaseFileName) {
+    std::ofstream file(BaseFileName, std::ios::binary | std::ios::app);
     file.write(reinterpret_cast<char *>(this), sizeof(Signature));
     file.close();
+}
+
+bool Signature::operator==(const Signature &other) const {
+    return std::equal(this->signatureData, this->signatureData + signatureLength, other.signatureData);
 }
 
