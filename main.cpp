@@ -1,5 +1,6 @@
 
 #include "AVBase.h"
+#include "ScannerFunctions.h"
 #include <fstream>
 
 int main() {
@@ -9,5 +10,6 @@ int main() {
     testSignature.WriteToFile("AVBase.txt");
     AVBase Base("AVBase.txt");
     Base.Print();
+    ScanDirectory("C:\\CLionProjects\\3semestr"  );
     return 0;
 }

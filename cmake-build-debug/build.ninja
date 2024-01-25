@@ -70,6 +70,13 @@ build CMakeFiles\Antivirus.dir\Signature.cpp.obj: CXX_COMPILER__Antivirus_Debug 
   TARGET_COMPILE_PDB = CMakeFiles\Antivirus.dir\
   TARGET_PDB = Antivirus.pdb
 
+build CMakeFiles\Antivirus.dir\ScannerFunctions.cpp.obj: CXX_COMPILER__Antivirus_Debug C$:\CLionProjects\3semestr\Antivirus\ScannerFunctions.cpp || cmake_object_order_depends_target_Antivirus
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++17
+  OBJECT_DIR = CMakeFiles\Antivirus.dir
+  OBJECT_FILE_DIR = CMakeFiles\Antivirus.dir
+  TARGET_COMPILE_PDB = CMakeFiles\Antivirus.dir\
+  TARGET_PDB = Antivirus.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Antivirus
@@ -78,7 +85,7 @@ build CMakeFiles\Antivirus.dir\Signature.cpp.obj: CXX_COMPILER__Antivirus_Debug 
 #############################################
 # Link the executable Antivirus.exe
 
-build Antivirus.exe: CXX_EXECUTABLE_LINKER__Antivirus_Debug CMakeFiles\Antivirus.dir\main.cpp.obj CMakeFiles\Antivirus.dir\AVBase.cpp.obj CMakeFiles\Antivirus.dir\Signature.cpp.obj
+build Antivirus.exe: CXX_EXECUTABLE_LINKER__Antivirus_Debug CMakeFiles\Antivirus.dir\main.cpp.obj CMakeFiles\Antivirus.dir\AVBase.cpp.obj CMakeFiles\Antivirus.dir\Signature.cpp.obj CMakeFiles\Antivirus.dir\ScannerFunctions.cpp.obj
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:X86 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
