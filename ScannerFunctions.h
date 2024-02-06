@@ -4,7 +4,6 @@
 
 #ifndef ANTIVIRUS_SCANNERFUNCTIONS_H
 #define ANTIVIRUS_SCANNERFUNCTIONS_H
-#include <string>
 #include "AVBase.h"
 
 void ScanDirectory(const std::string& path, const AVBase &Base);

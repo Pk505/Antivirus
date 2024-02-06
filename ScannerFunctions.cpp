@@ -7,7 +7,7 @@
 #include <iostream>
 
 
-void ScanDirectory(const std::string& path, AVBase& Base) {
+void ScanDirectory(const std::string& path, const AVBase& Base) {
     try {
         for (const auto& entry : std::filesystem::directory_iterator(path)) {
             if ( std::filesystem::is_regular_file(entry.path())) {

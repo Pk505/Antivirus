@@ -50,18 +50,18 @@ The CXX compiler identification is MSVC, found in "C:/CLionProjects/3semestr/Ant
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/CLionProjects/3semestr/Antivirus/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.2.3/bin/ninja/win/ninja.exe cmTC_e7cbe && [1/2] Building C object CMakeFiles\cmTC_e7cbe.dir\CMakeCCompilerABI.c.obj
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.2.3/bin/ninja/win/ninja.exe cmTC_2dc02 && [1/2] Building C object CMakeFiles\cmTC_2dc02.dir\CMakeCCompilerABI.c.obj
 Примечание: включение файла:  C:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\share\cmake-3.23\Modules\CMakeCompilerABI.h
-[2/2] Linking C executable cmTC_e7cbe.exe
+[2/2] Linking C executable cmTC_2dc02.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: C:/CLionProjects/3semestr/Antivirus/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.2.3/bin/ninja/win/ninja.exe cmTC_1eb0f && [1/2] Building CXX object CMakeFiles\cmTC_1eb0f.dir\CMakeCXXCompilerABI.cpp.obj
+Run Build Command(s):C:/Program Files/JetBrains/CLion 2022.2.3/bin/ninja/win/ninja.exe cmTC_ac0fd && [1/2] Building CXX object CMakeFiles\cmTC_ac0fd.dir\CMakeCXXCompilerABI.cpp.obj
 Примечание: включение файла:  C:\Program Files\JetBrains\CLion 2022.2.3\bin\cmake\win\share\cmake-3.23\Modules\CMakeCompilerABI.h
-[2/2] Linking CXX executable cmTC_1eb0f.exe
+[2/2] Linking CXX executable cmTC_ac0fd.exe
 
 
 

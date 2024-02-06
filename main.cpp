@@ -1,8 +1,4 @@
-
-#include "AVBase.h"
 #include "ScannerFunctions.h"
-#include <fstream>
-#include <iostream> //DELETE THIS ITS USELESS
 int main() {
     Signature testSignature("123455.zip");
     Signature testSignature2("123456.zip");
@@ -12,6 +8,6 @@ int main() {
     testSignature2.WriteToBase("AVBase.txt");
     AVBase Base("AVBase.txt");
     Base.Print();
-   // ScanDirectory("C:\\CLionProjects\\3semestr"  );
+    ScanDirectory("C:\\CLionProjects\\3semestr", Base);
     return 0;
 }
