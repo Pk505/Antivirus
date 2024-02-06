@@ -11,9 +11,8 @@ void ScanDirectory(const std::string& path, const AVBase& Base) {
     try {
         for (const auto& entry : std::filesystem::directory_iterator(path)) {
             if ( std::filesystem::is_regular_file(entry.path())) {
-                std::cout << "File: " << entry.path().string() << std::endl;
+                Base.isFileInfected(entry.path().string());
             } else if ( std::filesystem::is_directory(entry.path())) {
-                std::cout << "Directory: " << entry.path().string() << std::endl;
                 ScanDirectory(entry.path().string(), Base); // Recurse call to scan underdirectory
             }
         }

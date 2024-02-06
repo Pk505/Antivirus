@@ -29,12 +29,12 @@ void ClearBase(const std::string Filename) {
     file.close();
 }
 
-bool AVBase::isFileInfected(const std::string &suspiciousFile) {
+bool AVBase::isFileInfected(const std::string &suspiciousFile)const {
     Signature suspiciousFileSignature(suspiciousFile);
     bool result = false;
     for (auto & baseElement: BaseVector){
         if (suspiciousFileSignature == baseElement){
-            std::cout<<"File is infected!!!"<<std::endl;
+            std::cout<<suspiciousFile<<" is infected!!!"<<std::endl;
             result = true;
         }
     }

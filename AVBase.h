@@ -13,7 +13,7 @@ class AVBase {
 public:
     AVBase(const std::string& Filename);
     void Print();
-    bool isFileInfected(const std::string& suspiciousFile);
+    bool isFileInfected(const std::string& suspiciousFile) const;
 
 };
 void ClearBase(const std::string Filename);
