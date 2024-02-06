@@ -5,7 +5,9 @@
 #include "Signature.h"
 #include <iostream>
 #include <fstream>
-
+#include <sstream>
+#include <iomanip>
+#include <functional>
 
 bool isFileEmpty(const std::string &filename) {
     std::ifstream file(filename, std::ios::binary | std::ios::in);
@@ -27,8 +29,32 @@ Signature::Signature(const Signature &oldSignature) {
 
 Signature::Signature(const std::string &FileName) {
     std::ifstream file(FileName, std::ios::binary);
-    file.read(signatureData, signatureLength);
+    if (!file.is_open()) {
+        std::cerr << "Unable to open file: " << FileName << std::endl;
+    }
+
+    // Initialize SHA-256 context
+    std::stringstream sha256Context;
+    std::hash<std::string> hasher;
+
+    // Process file in chunks
+    const size_t bufferSize = 4096;
+    char buffer[bufferSize];
+    while (!file.eof()) {
+        file.read(buffer, bufferSize);
+        sha256Context << std::string(buffer, file.gcount());
+    }
+
+    // Calculate the hash
+    std::string hash = sha256Context.str();
+    std::size_t hashValue = hasher(hash);
+
+    // Convert the hash value to a hex string
+    std::stringstream hashStream;
+    hashStream << std::hex << hashValue;
     file.close();
+    for (int i = 0; i < signatureLength; i++)
+        signatureData[i] = hashStream.str()[i];
 }
 
 Signature::Signature() {

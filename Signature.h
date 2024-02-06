@@ -5,7 +5,7 @@
 #ifndef ANTIVIRUS_SIGNATURE_H
 #define ANTIVIRUS_SIGNATURE_H
 #include <string>
-static const unsigned short signatureLength = 32;
+static const unsigned short signatureLength = 8;
 
 class Signature {
 private:
