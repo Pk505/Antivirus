@@ -1,6 +1,5 @@
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include "ScannerFunctions.h"
+
+
 //int main() {
 //    Signature testSignature("/home/vboxuser/TEST_FILESYSTEM/Directory/FILE1.py");
 //   // Signature testSignature2("C:\\TEST FILE SYSTEM FOR ANTIVIRUS\\Directory 1\\File 1.3.exe");
@@ -13,219 +12,94 @@
 //    ScanDirectory("/home/vboxuser/TEST_FILESYSTEM", Base);
 //    return 0;
 //}
+#include <iostream>
+#include "ScannerFunctions.h"
+#include <QApplication>
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QLineEdit>
+#include <QPushButton>
+#include <QInputDialog>
+#include <QMessageBox>
+#include <QFileDialog>
+
+#include <QApplication>
+#include <QWidget>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QFileDialog>
+#include <QDebug>
 
 
-class FocusObject
-{
+class MyWidget : public QWidget {
 public:
-    virtual void setFocus () = 0 ;
-    virtual void deleteFocus () = 0 ;
-    virtual void event ( const sf::Event & ) = 0 ;
-} ;
+    MyWidget(QWidget *parent = nullptr) : QWidget(parent) {
+        QVBoxLayout *layout = new QVBoxLayout(this);
 
+        scanButton = new QPushButton("Scan directory", this);
+        layout->addWidget(scanButton);
 
+        reportButton = new QPushButton("Report file", this);
+        layout->addWidget(reportButton);
 
-class TextBox : public sf::Drawable , public FocusObject /*, public sf::Transformable */
-{
-public:
-    TextBox ( const sf::Text & text ) : m_text ( text )
-    {
-        m_newText = m_text.getString() ;
-        updateRect() ;
-        m_box.setFillColor( sf::Color::Blue ) ;
-    }
-    virtual void draw ( sf::RenderTarget & render , sf::RenderStates states ) const
-    {
-        if ( m_textChanged )
-        {
-            const_cast<TextBox*>(this)->setText ( m_newText ) ;
+        clearButton = new QPushButton("Clear base", this);
+        layout->addWidget(clearButton);
 
-            m_textChanged = false ;
-        }
-        render.draw ( m_box , states ) ;
-        render.draw ( m_text , states ) ;
+        connect(scanButton, &QPushButton::clicked, this, &MyWidget::scanClicked);
+        connect(reportButton, &QPushButton::clicked, this, &MyWidget::reportClicked);
+        connect(clearButton, &QPushButton::clicked, this, &MyWidget::clearClicked);
+
     }
-    virtual void setFocus ()
-    {
-        m_box.setFillColor( sf::Color::Red ) ;
-    }
-    virtual void deleteFocus ()
-    {
-        m_box.setFillColor( sf::Color::Blue ) ;
-    }
-    virtual void event ( const sf::Event & event )
-    {
-        if (event.type == sf::Event::TextEntered)
-        {
-            //Обработка ввода
-            m_textChanged = true ;
-            switch ( event.text.unicode )
-            {
-                case 0xD: //Return
-                    m_newText += L'\n' ;
-                    break ;
-                case 0x8://Backspace
-                    if ( !m_newText.isEmpty() )
-                        m_newText.erase(m_newText.getSize()-1) ;
-                    break ;
-                default :
-                {
-                    m_newText += static_cast<wchar_t>(event.text.unicode) ;
-                }
+
+private slots:
+
+    void scanClicked() {
+        QString filePath = QFileDialog::getExistingDirectory(this, "Выберите директорию", "",
+                                                             QFileDialog::ShowDirsOnly);
+        if (!filePath.isEmpty()) {
+            AVBase Base("AVBase.txt");
+            QString scanningResult = QString::fromStdString(ScanDirectory(filePath.toStdString(), Base));
+            if (!scanningResult.isEmpty()) {
+                QMessageBox::warning(this, "Scan finished", scanningResult);
             }
+            else{
+                QMessageBox::information(this, "Scan finished", "There is no malware files");
+            }
+        } else {
+            QMessageBox::warning(this, "No Directory Entered", "You did not choose a directory!");
         }
     }
-    void setText ( const sf::String & str )
-    {
-        m_text.setString ( str ) ;
-        updateRect() ;
-    }
-private:
-    void updateRect ()
-    {
-        sf::FloatRect rect = m_text.getGlobalBounds() ;
-        m_box.setPosition ( rect.left-5 , rect.top-5 ) ;
-        m_box.setSize( sf::Vector2f(rect.width+10 , rect.height+10) ) ;
-    }
-    mutable sf::RectangleShape m_box ;
-    mutable sf::Text m_text ;
-    mutable sf::String m_newText ;
-    mutable bool m_textChanged ;
-} ;
 
+    void reportClicked() {
+        QString filePath = QFileDialog::getOpenFileName(this, "Choose File", "", "Все файлы (*.*)");
 
-
-class FocusController
-{
-public:
-    FocusController ( FocusObject * obj = 0 ) : m_object (obj)
-    {
-        if ( m_object != 0 )
-        {
-            m_object->setFocus () ;
+        if (!filePath.isEmpty()) {
+            Signature newSignature(filePath.toStdString());
+            newSignature.WriteToBase("AVBase.txt");
+            QMessageBox::information(this, "File added", "File" + filePath + " was added to base.");
+        } else {
+            QMessageBox::warning(this, "No File Entered", "You did not choose a file!");
         }
     }
-    void setFocusObject ( FocusObject * new_obj )
-    {
-        if ( m_object == new_obj )
-            return ;
-        if ( m_object != 0 )
-            m_object->deleteFocus() ;
-        if ( new_obj != 0 )
-            new_obj->setFocus() ;
-        m_object = new_obj ;
-    }
-    FocusObject * getFocusObject ( )
-    {
-        return m_object ;
+
+    void clearClicked() {
+        ClearBase("AVBase.txt");
+        QMessageBox::information(this, "Clear base", "Base was cleared.");
     }
 
 private:
-    FocusObject * m_object ;
-} ;
+    QPushButton *scanButton;
+    QPushButton *reportButton;
+    QPushButton *clearButton;
 
-FocusController fc ;
+};
 
+int main(int argc, char *argv[]) {
+    QApplication app(argc, argv);
 
-int main()
-{
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Antivirus");
+    MyWidget widget;
+    widget.resize(300, 100);
+    widget.show();
 
-    // Создание текста для кнопки выбора файла
-    sf::Font font;
-    if (!font.loadFromFile("arial.ttf")) {
-        std::cerr << "Ошибка загрузки шрифта" << std::endl;
-        return 1;
-    }
-
-    // Создание кнопки для scan
-    sf::RectangleShape ScanButton(sf::Vector2f(200.f, 50.f));
-    ScanButton.setFillColor(sf::Color::Blue);
-    ScanButton.setPosition(300.f, 150.f);
-
-    sf::Text ScanButtonText("Scan", font, 24);
-    ScanButtonText.setPosition(310.f, 160.f);
-
-    // Создание кнопки для report
-    sf::RectangleShape ReportButton(sf::Vector2f(200.f, 50.f));
-    ReportButton.setFillColor(sf::Color::Red);
-    ReportButton.setPosition(300.f, 300.f);
-
-    sf::Text ReportButtonText("Report", font, 24);
-    ReportButtonText.setPosition(310.f, 310.f);
-
-
-    // Главный цикл приложения
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-
-            // Обработка нажатия на кнопку выбора файла
-            if (event.type == sf::Event::MouseButtonPressed) {
-                if (event.mouseButton.button == sf::Mouse::Left) {
-                    sf::Vector2i mousePos = sf::Mouse::getPosition(window);
-                    sf::Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));
-                    if (ScanButton.getGlobalBounds().contains(mousePosF)) {
-                        std::cout << "Scan Button was pressed" << std::endl;
-
-                        Signature testSignature("/home/vboxuser/TEST_FILESYSTEM/Directory/FILE1.py");
-                        ClearBase("AVBase.txt");
-                        testSignature.WriteToBase("AVBase.txt");
-                        AVBase Base("AVBase.txt");
-                        Base.Print();
-                        ScanDirectory("/home/vboxuser/TEST_FILESYSTEM", Base);
-                    }
-                    if (ReportButton.getGlobalBounds().contains(mousePosF)) {
-                        std::cout << "Report Button was pressed" << std::endl;
-                        sf::RenderWindow app(sf::VideoMode(800, 600), L"SFML window");
-                        sf::Text txt ;
-                        txt.setPosition ( 50 , 50 ) ;
-                        txt.setFont ( font ) ;
-                        txt.setString ( L"" ) ;
-                        int x = 0 ;
-                        TextBox tb ( txt ) ;
-                        fc.setFocusObject( &tb ) ;
-                        while (app.isOpen())
-                        {
-                            sf::Event event;
-                            while (app.pollEvent(event))
-                            {
-                                // Close window : exit
-                                if (event.type == sf::Event::Closed)
-                                    app.close();
-                                if ( event.type == sf::Event::MouseButtonPressed )
-                                {
-                                    //Меняем фокус на нужный объект
-                                }
-                                FocusObject * fo = fc.getFocusObject() ;
-                                if ( fo!= 0 )
-                                {
-                                    fo->event ( event ) ;
-                                }
-                            }
-                            app.clear();
-                            app.draw ( tb ) ;
-                            app.display();
-                        }
-
-                    }
-                }
-            }
-
-
-        }
-
-        window.clear();
-        window.draw(ScanButton);
-        window.draw(ScanButtonText);
-        window.draw(ReportButton);
-        window.draw(ReportButtonText);
-        window.display();
-    }
-
-    return 0;
+    return app.exec();
 }
