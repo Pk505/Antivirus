@@ -1,32 +1,12 @@
 
-
-//int main() {
-//    Signature testSignature("/home/vboxuser/TEST_FILESYSTEM/Directory/FILE1.py");
-//   // Signature testSignature2("C:\\TEST FILE SYSTEM FOR ANTIVIRUS\\Directory 1\\File 1.3.exe");
-//    //bool aa = testSignature == testSignature2;
-//    ClearBase("AVBase.txt");
-//    testSignature.WriteToBase("AVBase.txt");
-//   // testSignature2.WriteToBase("AVBase.txt");
-//    AVBase Base("AVBase.txt");
-//    Base.Print();
-//    ScanDirectory("/home/vboxuser/TEST_FILESYSTEM", Base);
-//    return 0;
-//}
 #include <iostream>
 #include "ScannerFunctions.h"
 #include <QApplication>
 #include <QWidget>
 #include <QVBoxLayout>
-#include <QLineEdit>
 #include <QPushButton>
 #include <QInputDialog>
 #include <QMessageBox>
-#include <QFileDialog>
-
-#include <QApplication>
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QPushButton>
 #include <QFileDialog>
 #include <QDebug>
 
