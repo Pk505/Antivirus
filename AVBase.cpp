@@ -35,7 +35,6 @@ std::string AVBase::isFileInfected(const std::string &suspiciousFile)const {
     for (auto & baseElement: BaseVector){
         if (suspiciousFileSignature == baseElement){
             result = suspiciousFile + " is INFECTED!!!";
-            std::cout<<"FLAG!!!"<<std::endl;
         }
     }
     return result;

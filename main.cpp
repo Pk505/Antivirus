@@ -61,8 +61,7 @@ private slots:
             QString scanningResult = QString::fromStdString(ScanDirectory(filePath.toStdString(), Base));
             if (!scanningResult.isEmpty()) {
                 QMessageBox::warning(this, "Scan finished", scanningResult);
-            }
-            else{
+            } else {
                 QMessageBox::information(this, "Scan finished", "There is no malware files");
             }
         } else {
@@ -71,20 +70,31 @@ private slots:
     }
 
     void reportClicked() {
-        QString filePath = QFileDialog::getOpenFileName(this, "Choose File", "", "Все файлы (*.*)");
-
-        if (!filePath.isEmpty()) {
-            Signature newSignature(filePath.toStdString());
-            newSignature.WriteToBase("AVBase.txt");
-            QMessageBox::information(this, "File added", "File" + filePath + " was added to base.");
+        QString password = QInputDialog::getText(this, "Access verification", "Enter administrator password:");
+        if (password == "123456") {
+            QMessageBox::information(this, "Access allowed", "Right password!");
+            QString filePath = QFileDialog::getOpenFileName(this, "Choose File", "", "Все файлы (*.*)");
+            if (!filePath.isEmpty()) {
+                Signature newSignature(filePath.toStdString());
+                newSignature.WriteToBase("AVBase.txt");
+                QMessageBox::information(this, "File added", "File" + filePath + " was added to base.");
+            } else {
+                QMessageBox::warning(this, "No File Entered", "You did not choose a file!");
+            }
         } else {
-            QMessageBox::warning(this, "No File Entered", "You did not choose a file!");
+            QMessageBox::warning(this, "Access denied", "Wrong password!");
         }
     }
 
     void clearClicked() {
-        ClearBase("AVBase.txt");
-        QMessageBox::information(this, "Clear base", "Base was cleared.");
+        QString password = QInputDialog::getText(this, "Access verification", "Enter administrator password:");
+        if (password == "123456") {
+            QMessageBox::information(this, "Access allowed", "Right password!");
+            ClearBase("AVBase.txt");
+            QMessageBox::information(this, "Clear base", "Base was cleared.");
+        } else {
+            QMessageBox::warning(this, "Access denied", "Wrong password!");
+        }
     }
 
 private:
